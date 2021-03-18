@@ -1,4 +1,5 @@
 import random
+import time
 
 class Node:
     def __init__(self, element = None, left = None, right = None):
@@ -23,7 +24,7 @@ class Node:
 
 
     def find_element_with_node(self, obj):
-        #If the next node is None then wie have not found the element and our whole life makes no sense anymore ;)
+        #If the next node is None then we have not found the element and our whole life makes no sense anymore ;)
         if obj == None:
             print("NOT FOUND")
             return False
@@ -109,30 +110,66 @@ def print2D(root) :
 
 
 if __name__ == "__main__":
-    rootNode = Node(50)
-    l = random.sample(range(1, 100), 10)
-    for i in l:
-        rootNode.insertNode(Node(i))
+    # rootNode = Node(50)
+    # l = random.sample(range(1, 100), 10)
+    # for i in l:
+    #     rootNode.insertNode(Node(i))
 
-    print("The root node always starts with 50")
-    print("The additional nodes are bellow:")
-    print(l)
-    print("-"*40)
-    print2D(rootNode)
+    # print("The root node always starts with 50")
+    # print("The additional nodes are bellow:")
+    # print(l)
+    # print("-"*40)
+    # print2D(rootNode)
     while True:
+        """
+        Getting values for the root_node and how many nodes should be in the graph
+        The range of the values in the graph are range(1,100)
+        """
+        root_Node_value = input("Please enter the Value of the root node: ")
+        rootNode = Node(int(root_Node_value))
+        n_nodes = input("Please enter the number of Nodes you want to have in the graph: ")
+        l = random.sample(range(1, 100), int(n_nodes))
+        for i in l:
+            rootNode.insertNode(Node(i))
+        print("Now we need some super heavy calculation for the graph! :D")
+        for i in range(1,4):
+            print("Calculating" + "."*i)
+            time.sleep(0.5)
+        print("Your graph looks like this: ")
+
+
+
+        """
+        Asking for a number to use the binarySearch algo
+        Asking to draw graph again
+        """
+        print2D(rootNode)
         print("-"*40)
-        print("If you want to check if node is in the tree please input your number you are searching for:")
-        print("If you want to leave type q")
-        print("If you want to draw the graph again type g")
-        n = input("NUMBER: ")
         print("-"*40)
-        if n == "q":
-            break
-        if n == "g":
-            print2D(rootNode)
-        else:
+        while True:
+            # print("If you want to check if node is in the tree please input your number you are searching for: ")
+            # print("-"*40)
+            # print("If you want to draw the graph again type g (q for quit): ")
             print("-"*40)
-            rootNode.find_element_with_number(rootNode, int(n))
+            print("Type a number for searching it: ")
+            print("Draw again type g: ")
+            print("QUIT type q: ")
+            n = input(">>>: ")
             print("-"*40)
+            if n == "q":
+                exit()
+            if n == "g":
+                print2D(rootNode)
+            else:
+                print("-"*40)
+                rootNode.find_element_with_number(rootNode, int(n))
+            print("-"*40)
+            print("-"*40)
+            print("If you want to change the values of the Root Node and the amount of nodes type c: (Otherwise enter): ")
+            c = input(">>>")
+            if c == "c":
+                break
+
+
     # random_numbers = [random.randint(0, 100) for x in range(30)]
     # print(random_numbers)
