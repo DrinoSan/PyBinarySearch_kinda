@@ -61,6 +61,21 @@ class Node:
             self.pre_order(start.right)
 
 
+    @staticmethod
+    def depth(node):
+        if node == None:
+            return False
+
+        left_node_depth = Node.depth(node.left)
+        right_node_depth = Node.depth(node.right)
+        if left_node_depth > right_node_depth:
+            # print("left: "+ str(left_node_depth + 1))
+            return left_node_depth+1
+        else:
+            # print("right: "+ str(right_node_depth + 1))
+            return right_node_depth+1
+
+
 
     def __str__(self):
         return str(self.element)
@@ -111,15 +126,23 @@ def print2D(root) :
 
 if __name__ == "__main__":
     # rootNode = Node(50)
-    # l = random.sample(range(1, 100), 10)
-    # for i in l:
-    #     rootNode.insertNode(Node(i))
+    # # l = random.sample(range(1, 100), 10)
+    # # for i in l:
+    # #     rootNode.insertNode(Node(i))
+    # rootNode.insertNode(Node(10))
+    # rootNode.insertNode(Node(60))
+    # rootNode.insertNode(Node(15))
 
-    # print("The root node always starts with 50")
-    # print("The additional nodes are bellow:")
-    # print(l)
-    # print("-"*40)
+    # Node.depth(rootNode)
+    # # print("The root node always starts with 50")
+    # # print("The additional nodes are bellow:")
+    # # print(l)
+    # # print("-"*40)
     # print2D(rootNode)
+
+
+
+    ###################
     while True:
         """
         Getting values for the root_node and how many nodes should be in the graph
@@ -144,6 +167,9 @@ if __name__ == "__main__":
         Asking to draw graph again
         """
         print2D(rootNode)
+        print("###########################")
+        print("## MAX DEPTH OF TREE = " + str(Node.depth(rootNode)) + " ##")
+        print("###########################")
         print("-"*40)
         print("-"*40)
         while True:
@@ -169,7 +195,7 @@ if __name__ == "__main__":
             c = input(">>>")
             if c == "c":
                 break
-
+    ###################
 
     # random_numbers = [random.randint(0, 100) for x in range(30)]
     # print(random_numbers)
