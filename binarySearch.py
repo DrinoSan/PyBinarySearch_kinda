@@ -89,6 +89,7 @@ class Node:
 
 
 #MAGIC.... tbh took it from stack overflow could not be botherd to write that too
+#But it was quite nice and easy to understand
 COUNT = [10]  
 # Function to print binary tree in 2D  
 # It does reverse inorder traversal  
@@ -110,6 +111,7 @@ def print2DUtil(root, space) :
     for i in range(COUNT[0], space): 
         print(end = " ")  
     print(root.element)  
+    # time.sleep(2)
   
     # Process left child  
     print2DUtil(root.left, space)  
