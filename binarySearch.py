@@ -69,10 +69,8 @@ class Node:
         left_node_depth = Node.depth(node.left)
         right_node_depth = Node.depth(node.right)
         if left_node_depth > right_node_depth:
-            # print("left: "+ str(left_node_depth + 1))
             return left_node_depth+1
         else:
-            # print("right: "+ str(right_node_depth + 1))
             return right_node_depth+1
 
 
@@ -182,7 +180,7 @@ if __name__ == "__main__":
             print("Type a number for searching it: ")
             print("Draw again type g: ")
             print("QUIT type q: ")
-            n = input(">>>: ")
+            n = input(">>>")
             print("-"*40)
             if n == "q":
                 exit()
