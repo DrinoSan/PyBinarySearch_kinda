@@ -260,10 +260,10 @@ if __name__ == "__main__":
             # print("If you want to check if node is in the tree please input your number you are searching for: ")
             # print("-"*40)
             # print("If you want to draw the graph again type g (q for quit): ")
-            print("-"*40)
             print("Type n to search a number: ")
             print("Type g to draw again: ")
-            print("Hit Enter to Continue: ")
+            # print("Hit Enter to Continue: ")
+            print("If you want to change the values of the Root Node and the amount of nodes type c: (Otherwise enter): ")
             print("Type q to QUIT: ")
             n = input(">>>")
             print("-"*40)
@@ -273,13 +273,19 @@ if __name__ == "__main__":
                 print2D(rootNode)
             if n == "n":
                 print("-"*40)
+                print("Please enter the Number you want to search for :D")
+                n = input(">>>")
+                print("")
+                print("-"*40)
+                print("-"*40)
+                print("-"*40)
                 rootNode.find_element_with_number(rootNode, int(n))
-            print("-"*40)
-            print("-"*40)
-            print("If you want to change the values of the Root Node and the amount of nodes type c: (Otherwise enter): ")
-            c = input(">>>")
-            if c == "c":
+            if n == "c":
                 break
+            print("-"*40)
+            print("-"*40)
+            print("-"*40)
+            print("")
     ###################
 
     # random_numbers = [random.randint(0, 100) for x in range(30)]
